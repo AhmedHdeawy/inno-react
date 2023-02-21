@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { deleteProduct, getProducts } from "../../api/products";
 import CreateProduct from "./create";
 import Product from "./product";
@@ -38,14 +38,10 @@ export default function ListProducts() {
         setCrrate(true);
     }
 
-    // function update() {
-    //     productsList();
-    // }
-
-    const update = () => {
-        productsList()
+    function update() {
+        productsList();
+        setCrrate(false);
     }
-
 
     return (
         <>
@@ -53,7 +49,7 @@ export default function ListProducts() {
             <button onClick={addProduct} >Add One</button>
 
             {
-                create ? <CreateProduct />
+                create ? <CreateProduct update={update} />
                 :
                     products.length == 0 ?
                         (

@@ -8,7 +8,7 @@ export default function Product(props) {
             <td> {props.description} </td>
             <td>
                 {
-                    props.imageUrl && <img src={props.imageUrl} />
+                    props.imageUrl && <img width='50' src={props.imageUrl} />
                 }
                 
             </td>
